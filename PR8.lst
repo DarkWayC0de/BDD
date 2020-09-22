@@ -1,0 +1,387 @@
+SQL> CREATE TABLE TITULACION (T VARCHA2(60) PRIMARY KEY, FAC VARCHAR2(60));
+CREATE TABLE TITULACION (T VARCHA2(60) PRIMARY KEY, FAC VARCHAR2(60))
+                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE TITULACION (T VARCHA2 (60) PRIMARY KEY, FAC VARCHAR2 (60) );
+CREATE TABLE TITULACION (T VARCHA2 (60) PRIMARY KEY, FAC VARCHAR2 (60) )
+                                   *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE TITULACION
+  2  (T VARCHAR2(60) PRIMARY KEY,
+  3  FAC VARCHAR2(60));
+
+Table created.
+
+SQL> *****************************************+++++++++++++
+SP2-0734: unknown command beginning "**********..." - rest of line ignored.
+SQL> select * from ASIGNATURA;
+
+       CAS A                                                  T           CUR        CAR         CT         CP         CL                                                                                                                                                                                                                                                                                                                                                                                           
+---------- -------------------------------------------------- ---- ---------- ---------- ---------- ---------- ----------                                                                                                                                                                                                                                                                                                                                                                                           
+         1 BASES DE DATOS                                     GII           3          7          3        1.5        1.5                                                                                                                                                                                                                                                                                                                                                                                           
+         2 INTELIGENCIA ARTIFICIAL                            GII           3          4        1.5        1.5          3                                                                                                                                                                                                                                                                                                                                                                                           
+         3 ALMACENES DE DATOS                                 MII           1          7        1.5          0        1.5                                                                                                                                                                                                                                                                                                                                                                                           
+         4 MINER??A DE DATOS                                  MII           1          7        1.5          0        1.5                                                                                                                                                                                                                                                                                                                                                                                           
+         5 INFORM??TICA B??SICA                               GII           1          7          3        1.5        1.5                                                                                                                                                                                                                                                                                                                                                                                           
+         6 ??LGEBRA                                           GII           1          1          3          3          0                                                                                                                                                                                                                                                                                                                                                                                           
+         7 C??LCULO                                           GII           1          8          3          3          0                                                                                                                                                                                                                                                                                                                                                                                           
+         8 OPTIMIZACI??N                                      GII           1          6          3        1.5        1.5                                                                                                                                                                                                                                                                                                                                                                                           
+         9 GESTI??N DE RIESGOS                                GII           3          4          3          0          3                                                                                                                                                                                                                                                                                                                                                                                           
+        11 ENSE??ANZA DE LA MATEM??TICA                       GM            2          5          6          0          0                                                                                                                                                                                                                                                                                                                                                                                           
+        10 ASTRONOM??A                                        GF            2          3          3        1.5        1.5                                                                                                                                                                                                                                                                                                                                                                                           
+        12 AN??LISIS COMPLEJO                                 GM            4          2        4.5          3          0                                                                                                                                                                                                                                                                                                                                                                                           
+
+12 rows selected.
+
+SQL> select T from ASIGNATURA;
+
+T                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+12 rows selected.
+
+SQL> select distinct T from ASIGNATURA;
+
+T                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> INSERT INTO TITULACION (T) select distinct T from ASIGNATURA;
+
+4 rows created.
+
+SQL> select T from ASIGNATURA;
+
+T                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+12 rows selected.
+
+SQL> select T from TITULACION;
+
+T                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 2 ANTES DE ESTA *******************************
+SP2-0734: unknown command beginning "::::::::::..." - rest of line ignored.
+SQL> ::::::::::::::::::::::::::::::::::::eSTA ES LA  3________________________;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SP2-0734: unknown command beginning "::::::::::..." - rest of line ignored.
+SQL> INSERT INTO TITULACION (FAC) select distinct T from ASIGNATURA;
+INSERT INTO TITULACION (FAC) select distinct T from ASIGNATURA
+*
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("ALU0101105802"."TITULACION"."T") 
+
+
+SQL> INSERT INTO TITULACION (FAC)  VALUES ('') where T = 'A';
+INSERT INTO TITULACION (FAC)  VALUES ('') where T = 'A'
+                                          *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> INSERT INTO TITULACION (FAC)  VALUES ('a') where T = 'A';
+INSERT INTO TITULACION (FAC)  VALUES ('a') where T = 'A'
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> INSERT INTO TITULACION (FAC)  VALUES ('a') where T = 'GF';
+INSERT INTO TITULACION (FAC)  VALUES ('a') where T = 'GF'
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> INSERT INTO TITULACION (FAC)  VALUES ('a') WHERE T = 'GF';
+INSERT INTO TITULACION (FAC)  VALUES ('a') WHERE T = 'GF'
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> UPDATE TITULACION SET FAC = 'A' where T ='GF'
+  2  ;
+
+0 rows updated.
+
+SQL> ls
+SP2-0042: unknown command "ls" - rest of line ignored.
+SQL> select T from TITULACION;
+
+T                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> select * from TITULACION;
+
+T                                                            FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+------------------------------------------------------------ ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                           
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> UPDATE TITULACION SET FAC = 'Aaa' where T ='GF';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'Aaa';
+
+4 rows updated.
+
+SQL> select * from TITULACION;
+
+T                                                            FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+------------------------------------------------------------ ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                           
+GM                                                           Aaa                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+GF                                                           Aaa                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+GII                                                          Aaa                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+MII                                                          Aaa                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> UPDATE TITULACION SET FAC = 'BB' where T = 'GM';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'BB' where T is 'GM';
+UPDATE TITULACION SET FAC = 'BB' where T is 'GM'
+                                            *
+ERROR at line 1:
+ORA-00908: missing NULL keyword 
+
+
+SQL> UPDATE TITULACION SET FAC = 'BB' where T like 'GM';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'BB' where T like 'MII';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'BB' where T like 'M%';
+
+1 row updated.
+
+SQL> UPDATE TITULACION SET FAC = 'BB' where T like 'MII%';
+
+1 row updated.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM%';
+
+1 row updated.
+
+SQL> Ls
+SP2-0042: unknown command "Ls" - rest of line ignored.
+SQL> select * from TITULACION;
+
+T                                                            FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+------------------------------------------------------------ ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                           
+GM                                                           CC                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+GF                                                           Aaa                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+GII                                                          Aaa                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+MII                                                          BB                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+SQL> drop table TITULACION;
+
+Table dropped.
+
+SQL> CREATE TABLE TITULACION
+  2    2  (T VARCHAR2(60) PRIMARY KEY,
+  3    3  FAC VARCHAR2(60));
+  2  (T VARCHAR2(60) PRIMARY KEY,
+  *
+ERROR at line 2:
+ORA-00922: missing or invalid option 
+
+
+SQL> CREATE TABLE TITULACION
+  2  (T CHAR(4) PRIMARY KEY,
+  3  FAC VARCHAR2(60));
+
+Table created.
+
+SQL> INSERT INTO TITULACION (FAC) select distinct T from ASIGNATURA;
+INSERT INTO TITULACION (FAC) select distinct T from ASIGNATURA
+*
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("ALU0101105802"."TITULACION"."T") 
+
+
+SQL> INSERT INTO TITULACION (T) select distinct T from ASIGNATURA;
+
+4 rows created.
+
+SQL> select * from TITULACION;
+
+T    FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+---- ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM%';
+
+1 row updated.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM ';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM  ';
+
+1 row updated.
+
+SQL> SELECT REPLACE(T,' ','') FROM TITULACION;
+
+REPL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> select * from TITULACION;
+
+T    FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+---- ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+GM   CC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM';
+
+0 rows updated.
+
+SQL> select TRIM(T) from TITULACION;
+
+TRIM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+----                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> drop table TITULACION;
+
+Table dropped.
+
+SQL> CREATE TABLE TITULACION
+  2  (T CHAR(4) PRIMARY KEY,
+  3  FAC VARCHAR2(60));
+
+Table created.
+
+SQL> INSERT INTO TITULACION (T) select distinct REMPLACE(T,' ','') from ASIGNATURA;
+INSERT INTO TITULACION (T) select distinct REMPLACE(T,' ','') from ASIGNATURA
+                                           *
+ERROR at line 1:
+ORA-00904: "REMPLACE": invalid identifier 
+
+
+SQL> INSERT INTO TITULACION (T) select distinct REPLACE(T,' ','') from ASIGNATURA;
+
+4 rows created.
+
+SQL> select * from TITULACION;
+
+T    FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+---- ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM%';
+
+1 row updated.
+
+SQL> INSERT INTO TITULACION (T) select distinct REPLACE(T,'  ','') from ASIGNATURA;
+INSERT INTO TITULACION (T) select distinct REPLACE(T,'  ','') from ASIGNATURA
+*
+ERROR at line 1:
+ORA-00001: unique constraint (ALU0101105802.SYS_C00146873) violated 
+
+
+SQL> select * from TITULACION;
+
+T    FAC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+---- ------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+GF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+MII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+GM   CC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+GII                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+SQL> drop table TITULACION;
+
+Table dropped.
+
+SQL> CREATE TABLE TITULACION
+  2  (T CHAR(4) PRIMARY KEY,
+  3  FAC VARCHAR2(60));
+
+Table created.
+
+SQL> INSERT INTO TITULACION (T) select distinct TRIM(T) from ASIGNATURA;
+
+4 rows created.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM';
+
+0 rows updated.
+
+SQL> UPDATE TITULACION SET FAC = 'CC' where T like 'GM%';
+
+1 row updated.
+
+SQL> spool off

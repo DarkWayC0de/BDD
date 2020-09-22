@@ -1,0 +1,31 @@
+SQL> delete from PLAN_DOCENTE where DNI=4444;
+
+3 rows deleted.
+
+SQL> select * from PLAN_DOCENTE where DNI=4444;
+
+no rows selected
+
+SQL> CREATE RESTORE POINT P1;
+CREATE RESTORE POINT P1
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> CREATE RESTORE POINT P1;
+CREATE RESTORE POINT P1
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> CREATE RESTORE POINT P1
+  2  ;
+CREATE RESTORE POINT P1
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> exit
